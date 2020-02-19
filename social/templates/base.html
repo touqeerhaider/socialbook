@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socialbook</title>
+    <link href="/static/vendor/bs/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/static/vendor/jquery-3.4.1.js"></script>
+    <script src="/static/vendor/popper.min.js.js"></script>
+    <script src="/static/vendor/bs/js/bootstrap.min.js"></script>
+    <link href="/static/vendor/fa/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<header id="myheader1">
+<img class="w-100 h-100" src="/static/images/headbanner.jpg" alt="koi" />
+            <a class="logo" href="#">SocialBook</a>
+</header>
+
+
+    <div id="headfix">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+
+            {% if user.is_authenticated %}
+                {% if user.is_superuser%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/profile/edit/{{user.myprofile.id}}">Edit profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/mypost">My Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/myprofile">People</a>
+                    </li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/logout">LogOut</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/profile/edit/{{user.myprofile.id}}">Edit profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/mypost">My Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/social/myprofile">People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/logout">LogOut</a>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/accounts/login">LogIn </a>
+                </li>
+            {% endif %}
+
+            <!--
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" href="#">Action 1</a>
+                    <a class="dropdown-item" href="#">Action 2</a>
+                </div>
+            </li>
+            -->
+        </ul>
+    </div>
+</nav>
+    </div>
+
+{% block content %}
+{% endblock %}
+<footer class="myfooter text-center p-2">
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Toll Free</h5>
+            <p>1-800-800-xxx</p>
+        </div>
+        <div class="col-md-6">
+            <h5>Social Media</h5>
+        <a href="https://www.facebook.com/" target="_blank"><span class="fa fa-facebook fa-2x mx-1"></span></a>
+            <a href="https://www.twitter.com/" target="_blank"><span class="fa fa-twitter fa-2x mx-1"></span></a>
+        <a href="https://www.youtube.com/" target="_blank"><span class="fa fa-youtube fa-2x mx-1"></span></a>
+        </div>
+    </div>
+<p>copyright @ Socialbook</p>
+</footer>
+</body>
+</html>

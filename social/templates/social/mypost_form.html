@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<main class="login p-3">
+<div class="row text-justify">
+    <div class="col-md-12">
+        <h1>New Post</h1>
+        <hr/>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-md-5 offset-md-4">
+    <form class="form-checkbox" enctype="multipart/form-data" method="post" novalidate>
+        {% csrf_token %}
+        {{ form | crispy }}<br/>
+        <input class="btn btn-dark btn-block"  type="submit" value="Post"/>
+    </form>
+    </div>
+    </div>
+    </main>
+{% endblock %}

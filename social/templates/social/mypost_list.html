@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="itsno">
+<main class="nologin p-3">
+
+        <h1>My Posts<a class="btn btn-dark btn-sm ml-2" href="/social/mypost/create"><span class="fa fa-plus"></span>
+        </a></h1>
+    <hr/>
+
+<form class="postlist form-inline">
+    <input class="form-control mr-3" placeholder="Search" value="{{request.GET.si}}" type="text" name="si" />
+    <input class="btn btn-dark" type="submit" value="search"/>
+</form>
+
+    <table class="table my-3 table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tr>
+            {% for n in mypost_list %}
+            <td>{{n.subject}}</td>
+            <td>{{n.cr_date | date:"d/m/y "}}</td>
+            <td>
+                <a class="btn btn-sm btn-dark" href="/social/mypost/{{n.id}}">View Post</a>
+                <a class="btn btn-sm btn-danger" href="/social/mypost/delete/{{n.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+</div>
+
+{% endblock %}

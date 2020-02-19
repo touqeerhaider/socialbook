@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="itsno">
+<main class="nologin p-3">
+
+        <h1>People Profiles</h1>
+    <hr/>
+
+<form class="postlist form-inline">
+    <input class="form-control mr-3" placeholder="Search" value="{{request.GET.si}}" type="text" name="si" />
+    <input class="btn btn-dark" type="submit" value="search"/>
+</form>
+
+    <table class="table my-3 table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+
+            {% for n in myprofile_list %}
+        <tr>
+            {% if not n.user.is_superuser %}
+            <td>{{n.name}}</td>
+            <td>{{n.age}}</td>
+            <td>{{n.gender}}</td>
+
+            <td>
+                <a class="btn btn-sm btn-dark" href="/social/myprofile/{{n.id}}">View Profile</a>
+                {% if n.followed %}
+                    <a class="btn btn-sm btn-danger" href="/social/myprofile/unfollow/{{n.id}}">UnFollow</a>
+                {% else %}
+                    <a class="btn btn-sm btn-primary" href="/social/myprofile/follow/{{n.id}}">Follow</a>
+                {% endif %}
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+
+    </table>
+</main>
+</div>
+
+{% endblock %}

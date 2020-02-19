@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="detail p-3">
+
+        <h1>{{myprofile.name}}</h1><hr/>
+        <div class="row">
+            <div class="col-md-5 offset-md-2">
+                <p><strong>Age          ::  </strong>{{myprofile.age}}</p>
+                <p><strong>Gender       ::  </strong>{{myprofile.gender}}</p>
+                <p><strong>Address      ::  </strong>{{myprofile.address}}</p>
+                <p><strong>Stauts       ::  </strong>{{myprofile.status}}</p>
+                <p><strong>Phone No     ::  </strong>{{myprofile.phone_no}}</p>
+                <p><strong>Description  ::  </strong>{{myprofile.description}}</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid" src="/media/{{myprofile.pic}}">
+            </div>
+    <hr/>
+    </div>
+<div class="row">
+            <div class="col-md-5 offset-md-2">
+            <a class="btn btn-dark btn-sm" href="/social/myprofile">Back</a>
+</div>
+
+</main>
+
+
+{% endblock %}

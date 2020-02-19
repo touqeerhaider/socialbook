@@ -1,0 +1,111 @@
+body{
+background-color: #fcfbd1;
+font-size:1.2em;
+}
+#myheader1{
+height: 220px;
+}
+.logo{
+position: absolute;
+top: 160px;
+left: 110px;
+font-size: 40px;
+color: red;
+text-shadow: 2px 2px 2px white;
+font-weight: bolder;
+}
+.logo:link, .logo:visited, .logo:hover, .logo:active{
+text-decoration: none;
+color:red;
+}
+.navbar{
+border-top: 2px solid red;
+}
+.navbar .navbar-nav .nav-item{
+height: 35px;
+font-size: 110%;
+}
+.imgg{
+max-height: 100%;
+max-width: 100%;
+height: 400px;
+width: 1260px;
+}
+.imga{
+
+height: 320px;
+width: 1260px;
+}
+@media(max-width:766px){
+.logo{
+left: 50px;
+font-size: 40px;
+top:160px;
+}
+}
+@media(max-width:500px){
+.logo{
+left: 30px;
+font-size: 40px;
+top:160px;
+}
+}
+.myfooter, .myfooter a{
+background-color:#202020;
+font-size: 18px;
+color: white;
+text-shadow: 2px 2px 2px black;
+}
+
+.myfooter .col-md-6{
+border-bottom:1px solid white;
+padding-top:10px;
+padding-bottom:8px;
+}
+.login .login form input[type=submit], .login form input, .login form .btn{
+width: 45%;
+}
+.loginform{
+padding-left:35%;
+}
+.contactform .btn{
+width: 100%;
+}
+.kk{
+padding-left:45%;
+}
+@media(max-width:500px){
+.login form input[type=submit], .login form input, .login form .btn{
+width: 70%;
+}
+}
+@media(max-width:500px){
+.loginform{
+padding-left:17%;
+}
+}
+@media(max-width:500px){.kk{
+padding-left:35%;
+}}
+.detail img{
+max-height: 100%;
+max-width: 100%;
+height: 200px;
+width: 300px;
+}
+.confirmdelete{
+padding-left:45%;
+}
+@media(max-width:500px){.confirmdelete{
+padding-left:35%;
+}}
+@media(max-width:500px){.postlist .btn{
+margin-top:6px;
+}}
+
+
+
+
+
+
+

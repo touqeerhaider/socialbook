@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row p-3 text-justify">
+    <div class="col-md-12">
+        <h1>SocialBook</h1>
+        <hr/>
+        <form class="postlist form-inline">
+            <input class="form-control mr-3" placeholder="Search" value="{{request.GET.si}}" type="text" name="si" />
+            <input class="btn btn-dark" type="submit" value="search"/>
+        </form>
+        <br/>
+
+        <div class="row">
+            {% for n in mypost_list %}
+                <div class="col-md-4 my-3">
+                    <div class="card text-center h-100">
+                        <a href="/social/mypost/{{n.id}}"><img class="imga card-img-top img-fluid" src="/media/{{n.pic}}" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">{{n.subject}}</h4>
+                            <p class="card-text">{{n.cr_date | date:"d/m/y "}} - {{n.uploaded_by.name}}</p>
+                            <img style="width:50px; height: 50px;" class="rounded-circle" src="/media/{{n.uploaded_by.pic}}" alt="">
+                            <a class="btn btn-sm btn-dark" href="/social/mypost/{{n.id}}">View Post</a>
+                            {% if n.liked %}
+                            <a id="demo" onclick="likee()" class="btn btn-sm btn-danger" href="/social/mypost/unlike/{{n.id}}"><span class="fa fa-thumbs-down"> UnLike</span></a>
+                            <script>
+                            function likee(){
+                                 document.getElementById("demo").innerHTML="HOGYA";
+                                 $.ajax({
+      type: "POST",
+      url: "edit-homepage.php",
+      data: { 'id' : id },
+      success: function(data) {
+          alert("ID: <?PHP echo $_POST['id']; ?>");
+      }
+                            }
+                            </script>
+                            {% else %}
+                            <a class="btn btn-sm btn-success" href="/social/mypost/like/{{n.id}}"><span class="fa fa-thumbs-up"> Like</span></a>
+                            {% endif %}
+                            <span class="badge badge-info"> Likes {{n.likecount}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

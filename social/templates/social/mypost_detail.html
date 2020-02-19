@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="detail p-3">
+
+        <h1>{{mypost.subject}}</h1><hr/>
+        <div class="row">
+            <div class="col-md-5 offset-md-2">
+                <p><strong>MSG ::</strong>{{mypost.msg}}</p>
+                <p><strong>Date ::</strong>{{mypost.cr_date | date:"d/m/y "}}</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid" src="/media/{{mypost.pic}}">
+            </div>
+    <hr/>
+    </div>
+<div class="row">
+            <div class="col-md-5 offset-md-2">
+</div>
+</main>
+
+
+{% endblock %}
